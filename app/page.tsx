@@ -1,9 +1,10 @@
 "use client";
 import React, { useMemo, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Github, Globe, BookOpen, Rocket, Search, Filter, ExternalLink, BadgeCheck, MapPin, Sparkles, Heart, Menu, X } from "lucide-react";
+import { Github, Globe, BookOpen, Rocket, Search, Filter, ExternalLink, Sparkles, Menu, X } from "lucide-react";
 import { getProjects, getPathSteps, type Project, type PathStep } from "../lib/sanity";
 import Image from "next/image";
+import { WalletButton } from "../components/WalletButton";
 
 // ————————————————————————————————————————————————
 // CRIPTOCHINGADERAS — Dynamic React page with Sanity CMS
@@ -110,15 +111,19 @@ export default function CriptochingaderasSite() {
             />
           </a>
 
-          <nav className="hidden md:flex items-center gap-6 text-sm">
-            <a href="#projects" className="opacity-80 hover:opacity-100">Proyectos</a>
-            <a href="#path" className="opacity-80 hover:opacity-100">Camino Web2 → Web3</a>
-            <a href="#about" className="opacity-80 hover:opacity-100">Acerca</a>
-          </nav>
+          <div className="flex items-center gap-4">
+            <nav className="hidden md:flex items-center gap-6 text-sm">
+              <a href="#projects" className="opacity-80 hover:opacity-100">Proyectos</a>
+              <a href="#path" className="opacity-80 hover:opacity-100">Camino Web2 → Web3</a>
+              <a href="#about" className="opacity-80 hover:opacity-100">Acerca</a>
+            </nav>
 
-          <button className="md:hidden p-2 rounded-lg hover:bg-white/10" onClick={() => setMenuOpen((v) => !v)}>
-            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+            <WalletButton />
+
+            <button className="md:hidden p-2 rounded-lg hover:bg-white/10" onClick={() => setMenuOpen((v) => !v)}>
+              {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
         {menuOpen && (
           <div className="md:hidden border-t border-white/10">
@@ -171,7 +176,7 @@ export default function CriptochingaderasSite() {
                   />
                 </div>
                 <p className="text-white/80 max-w-sm text-sm">
-                  "La neta no venimos a hablar, venimos a <span className="font-semibold">construir</span>. Si queda feo, se vuelve a hacer hasta que quede mamalón."
+                  &quot;La neta no venimos a hablar, venimos a <span className="font-semibold">construir</span>. Si queda feo, se vuelve a hacer hasta que quede mamalón.&quot;
                 </p>
               </div>
               <div className="mt-4 flex items-center justify-between text-xs text-white/70">
@@ -408,7 +413,7 @@ export default function CriptochingaderasSite() {
             <ul className="mt-2 text-sm space-y-2 opacity-90">
               <li>Diseño: minimal.</li>
               <li>Stack: Next.js + TypeScript + Tailwind + Framer Motion + Sanity CMS.</li>
-              <li>Licencia: MIT pa' que lo forkeen a gusto.</li>
+              <li>Licencia: MIT pa&apos; que lo forkeen a gusto.</li>
             </ul>
           </div>
         </div>
